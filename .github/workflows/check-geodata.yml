@@ -18,10 +18,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-          cache: "pip"
 
       - name: Install dependencies
-        run: pip install ipdata
+        run: |
+          python -m pip install --upgrade pip
+          pip install ipdata
 
       - name: Validate Geofeed
         run: ipdata validate geofeed.csv
